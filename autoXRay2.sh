@@ -102,7 +102,7 @@ mkdir -p "$WEB_PATH"
 # Генерируем сайт маскировку (с проверкой скачивания)
 echo -e "${YEL}Скачивание и запуск генератора страницы-заглушки...${NC}"
 GEN_PAGE_SCRIPT=$(mktemp)
-if ! curl -sL -o "$GEN_PAGE_SCRIPT" "https://github.com/xVRVx/autoXRAY/raw/refs/heads/main/test/gen_page2.sh"; then
+if ! curl -sL -o "$GEN_PAGE_SCRIPT" "https://github.com/FlagmanAlex/autoXRAY/raw/refs/heads/main/test/gen_page2.sh"; then
     echo -e "${RED}❌ Не удалось скачать gen_page2.sh. Проверьте подключение к GitHub.${NC}"
     rm -f "$GEN_PAGE_SCRIPT"
     exit 1
