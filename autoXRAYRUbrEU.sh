@@ -303,7 +303,7 @@ mkdir -p "$WEB_PATH"
 # Генерируем сайт маскировку (с проверкой скачивания)
 echo -e "${YEL}Скачивание и запуск генератора страницы-заглушки...${NC}"
 GEN_PAGE_SCRIPT=$(mktemp)
-if ! curl -sL -o "$GEN_PAGE_SCRIPT" "https://github.com/xVRVx/autoXRAY/raw/refs/heads/main/test/gen_page2.sh"; then
+if ! curl -sL -o "$GEN_PAGE_SCRIPT" "https://github.com/FlagmanAlex/autoXRAY/raw/refs/heads/main/test/gen_page2.sh"; then
     echo -e "${RED}❌ Не удалось скачать gen_page2.sh. Проверьте подключение к GitHub.${NC}"
     rm -f "$GEN_PAGE_SCRIPT"
     exit 1
@@ -911,7 +911,7 @@ configListLink="https://$DOMAIN/$path_subpage.html"
 if [ "$INSTALL_MTP" = true ]; then
     echo -e "\n\n${GRN}Устанавливаем MTProto FakeTLS ${NC}"
     TELEMT_SCRIPT=$(mktemp)
-    if ! curl -sL -o "$TELEMT_SCRIPT" "https://github.com/xVRVx/autoXRAY/raw/refs/heads/main/test/telemt-test.sh"; then
+    if ! curl -sL -o "$TELEMT_SCRIPT" "https://github.com/FlagmanAlex/autoXRAY/raw/refs/heads/main/test/telemt-test.sh"; then
         echo -e "${RED}❌ Не удалось скачать telemt-test.sh. Пропускаем установку MTProxy.${NC}"
         rm -f "$TELEMT_SCRIPT"
         INSTALL_MTP=false
