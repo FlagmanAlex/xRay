@@ -164,12 +164,12 @@ systemctl stop telemt; systemctl disable telemt; rm -f /etc/systemd/system/telem
 
 1) На заблокированный чистый VPS ставим стандартный рекомендованный скрипт и берем получившийся vless XHTTP reality EXTRA (конфиг №1):
 ```bash
-bash -c "$(curl -L https://raw.githubusercontent.com/FlagmanAlex/XRay/main/autoXRAY1.sh)" -- поддомен1.вашДОМЕН.com
+bash -c "$(curl -L https://raw.githubusercontent.com/FlagmanAlex/XRay/main/autoXRAY2.sh)" -- поддомен1.вашДОМЕН.com
 
 ```
 2) На ru VPS ставим новый скрипт (здесь нам понадобится vless XHTTP reality EXTRA конфиг №1):
 ```bash
-bash -c "$(curl -L https://raw.githubusercontent.com/FlagmanAlex/XRay/main/autoXRAYselfRUbrEUxhttp.sh)" -- поддомен2.вашДОМЕН.com "vless://вашКонфигXHTTP"
+bash -c "$(curl -L https://raw.githubusercontent.com/FlagmanAlex/XRay/main/autoXRAYRUbrEU.sh)" -- поддомен2.вашДОМЕН.com "vless://вашКонфигXHTTP"
 ```
 Установится прокси мост между серверами, итоговая цепочка: конфиг клиента -> ru VPS -> eu VPS -> зарубежный сайт
 
