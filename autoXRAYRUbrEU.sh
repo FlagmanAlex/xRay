@@ -316,15 +316,28 @@ fi
 rm -f "$GEN_PAGE_SCRIPT"
 echo -e "${GRN}✅ Страница-заглушка сгенерирована.${NC}"
 
-# Установка Xray
-echo -e "${YEL}Установка Xray...${NC}"
-bash -c "$(curl -sL https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+
+# Установка Xray (фиксированная стабильная версия)
+echo -e "${YEL}Установка Xray 1.8.24...${NC}"
+XRAY_VERSION="1.8.24"
+
+# Если уже стоит другая версия — переустановим на нужную
+if command -v xray &>/dev/null; then
+    CURRENT_XRAY_VER=$(xray version 2>/dev/null | head -n1 | awk '{print $2}')
+    if [ "$CURRENT_XRAY_VER" != "Xray $XRAY_VERSION" ] && [ "$CURRENT_XRAY_VER" != "$XRAY_VERSION" ]; then
+        echo -e "${YEL}Обнаружена версия $CURRENT_XRAY_VER, переустанавливаем на $XRAY_VERSION...${NC}"
+        bash -c "$(curl -sL https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version "$XRAY_VERSION"
+    fi
+else
+    bash -c "$(curl -sL https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version "$XRAY_VERSION"
+fi
 
 # Проверка, что xray установлен
 if ! command -v xray &> /dev/null; then
     echo -e "${RED}❌ Xray не установлен. Выход.${NC}"
     exit 1
 fi
+
 
 SCRIPT_DIR=/usr/local/etc/xray
 
